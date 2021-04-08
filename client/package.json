@@ -1,0 +1,24 @@
+{
+  "name": "snowpack-demo",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.html",
+  "scripts": {
+    "start": "snowpack dev",
+    "build": "snowpack build"
+  },
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "@snowpack/plugin-dotenv": "^2.0.5",
+    "@snowpack/plugin-react-refresh": "^2.4.1",
+    "@snowpack/plugin-typescript": "^1.2.1",
+    "@types/react": "^17.0.3",
+    "@types/react-dom": "^17.0.2",
+    "snowpack": "^3.1.1"
+  },
+  "dependencies": {
+    "react": "^17.0.1",
+    "react-dom": "^17.0.1"
+  }
+}
