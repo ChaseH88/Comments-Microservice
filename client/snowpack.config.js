@@ -1,3 +1,5 @@
+const { ports: { client } } = require('../ports.json');
+
 module.exports = {
   mount: {
     public: {
@@ -13,26 +15,12 @@ module.exports = {
     minify: true,
     target: 'es2018',
   },
+  devOptions: {
+    port: client
+  },
   plugins: [
     '@snowpack/plugin-react-refresh',
     '@snowpack/plugin-dotenv',
     '@snowpack/plugin-typescript',
-  ],
-//   routes: [
-//     /* Enable an SPA Fallback in development: */
-//     // {"match": "routes", "src": ".*", "dest": "/index.html"},
-//   ],
-//   optimize: {
-//     /* Example: Bundle your final build: */
-//     // "bundle": true,
-//   },
-//   packageOptions: {
-//     /* ... */
-//   },
-//   devOptions: {
-//     /* ... */
-//   },
-//   buildOptions: {
-//     /* ... */
-//   },
+  ]
 };

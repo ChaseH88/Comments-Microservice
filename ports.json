@@ -1,8 +1,8 @@
 {
   "ports": {
-    "client": 6000,
-    "posts": 6001,
-    "comments": 6002
+    "client": 6001,
+    "posts": 6002,
+    "comments": 6003
   },
   "routes": {
     "post": "/posts",
