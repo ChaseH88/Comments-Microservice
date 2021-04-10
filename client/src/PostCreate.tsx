@@ -12,7 +12,14 @@ const PostCreate: FC = (): JSX.Element => {
 
   const handleSubmit = async (e: React.SyntheticEvent) => {
     e.preventDefault();
-    await useAxios(`http://localhost:${config.ports.posts}${config.routes.post}`);
+
+    await useAxios(
+      `http://localhost:${config.ports.posts}${config.routes.post}`,
+      'post',
+      { title }
+    );
+
+    setData('');
   }
 
   return(
