@@ -1,7 +1,7 @@
 //@ts-check
 const express = require('express');
 const { randomBytes } = require('crypto');
-const port = require('../ports.json');
+const { ports, routes } = require('../ports.json');
 
 const app = express();
 
@@ -9,12 +9,11 @@ app.use(express.json())
 
 const posts = {}
 
-app.get('/post', (req, res) => {
-  console.log('testing')
+app.get(routes.post, (req, res) => {
   res.send(posts);
 });
 
-app.post('/post', ({ body }, res) => {
+app.post(routes.post, ({ body }, res) => {
 
   const id = randomBytes(4).toString('hex');
   const { title } = body;
@@ -25,6 +24,6 @@ app.post('/post', ({ body }, res) => {
 
 });
 
-app.listen(port.posts, () =>
-  console.log(`Listening on http://${port.posts}/`)
+app.listen(ports.posts, () =>
+  console.log(`Listening on http://${ports.posts}/`)
 );

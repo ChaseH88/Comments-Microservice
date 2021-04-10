@@ -1,5 +1,11 @@
 {
-  "client": 6000,
-  "posts": 6001,
-  "comments": 6002
+  "ports": {
+    "client": 6000,
+    "posts": 6001,
+    "comments": 6002
+  },
+  "routes": {
+    "post": "/posts",
+    "postComments": "/posts/:id/comments"
+  }
 }
