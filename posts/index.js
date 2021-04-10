@@ -2,9 +2,11 @@
 const express = require('express');
 const { randomBytes } = require('crypto');
 const { ports, routes } = require('../ports.json');
+const cors = require('cors');
 
 const app = express();
 
+app.use(cors());
 app.use(express.json())
 
 const posts = {}
