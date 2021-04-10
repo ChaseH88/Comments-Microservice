@@ -2,13 +2,18 @@ import React, { FC } from 'react';
 import ReactDOM from 'react-dom';
 
 // Components
-import { PostCreate } from './components';
+import {
+  PostCreate,
+  PostList
+} from './components';
 
 const App: FC = (): JSX.Element => {
 
   return(
     <div>
       <PostCreate />
+      <hr />
+      <PostList />
     </div>
   )
 }
