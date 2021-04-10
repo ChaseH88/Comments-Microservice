@@ -1,0 +1,1 @@
+cp ../ports.json public

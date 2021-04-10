@@ -1,11 +1,14 @@
-import React from 'react';
+import React, { FC } from 'react';
 import ReactDOM from 'react-dom';
 
-const App = () => {
+// Components
+import { PostCreate } from './PostCreate';
+
+const App: FC = (): JSX.Element => {
 
   return(
     <div>
-      <h1>Testing</h1>
+      <PostCreate />
     </div>
   )
 }
