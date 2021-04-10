@@ -2,7 +2,7 @@ import React, { FC } from 'react';
 import ReactDOM from 'react-dom';
 
 // Components
-import { PostCreate } from './PostCreate';
+import { PostCreate } from './components';
 
 const App: FC = (): JSX.Element => {
 
