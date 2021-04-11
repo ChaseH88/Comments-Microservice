@@ -10,6 +10,7 @@
     "postComments": "/post/:id/comments"
   },
   "event": {
-    "postCreated": "PostCreated"
+    "postCreated": "PostCreated",
+    "commentCreated": "CommentCreated"
   }
 }

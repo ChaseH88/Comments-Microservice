@@ -31,6 +31,11 @@ app.post(routes.post, async ({ body }, res) => {
 
 });
 
+app.post('/events', ({ body }, res) => {
+  console.log('Received Event: ', body.type);
+  res.send({});
+});
+
 app.listen(ports.posts, () =>
   console.log(`Listening on http://${ports.posts}/`)
 );

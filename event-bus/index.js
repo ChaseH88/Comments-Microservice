@@ -5,9 +5,10 @@ const axios = require('axios');
 
 app.use(express.json());
 
-app.post('/events', ({ body }, res) => {
+app.post('/events', (req, res) => {
 
-  const { event } = body;
+  const event = req.body;
+  console.log('event', event);
 
   axios.post(`http://localhost:${ports.client}/events`, event)
   axios.post(`http://localhost:${ports.posts}/events`, event)
