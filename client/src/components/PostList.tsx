@@ -1,7 +1,14 @@
-import React, { FC, useState, useEffect } from 'react';
+import React, { FC, useState, useEffect, lazy, Suspense } from 'react';
 import { useAxios } from '../hooks/useAxios';
 import config from '../../public/config.json';
-import { CommentList, CreateComment } from './';
+
+// Code split
+const CommentList = lazy(() => import('./CommentList')
+    .then(({ CommentList }) => ({ default: CommentList }))
+);
+const CreateComment = lazy(() => import('./CreateComment')
+    .then(({ CreateComment }) => ({ default: CreateComment })),
+);
 
 const PostList: FC = (): JSX.Element => {
 
@@ -34,8 +41,10 @@ const PostList: FC = (): JSX.Element => {
           <h3>
             {title}
           </h3>
-          <CommentList postId={a} />
-          <CreateComment postId={a} />
+          <Suspense fallback={<div>Loading...</div>}>
+            <CommentList postId={a} />
+            <CreateComment postId={a} />
+          </Suspense>
         </div>
       </div>
     ))
