@@ -51,8 +51,32 @@ app.post(routes.postComments, async ({ body, params }, res) => {
 
 });
 
-app.post('/events', ({ body }, res) => {
-  console.log('Received Event: ', body.type);
+app.post('/events', async ({ body }, res) => {
+  const { type, data } = body;
+  console.log('Received Event: ', type);
+
+  if (type === event.commentModerated) {
+
+    const { postId, id, status, content } = data;
+    const comments = commentsByPostId[postId];
+
+    const comment = comments.find(comment => (
+      comment.id === id
+    ));
+
+    comment.status = status
+
+    await axios.post(`http://localhost:${ports.eventBus}/events`, {
+      type: event.commentUpdated,
+      data: {
+        id,
+        status,
+        postId,
+        content
+      }
+    });
+  }
+
   res.send({});
 });
 

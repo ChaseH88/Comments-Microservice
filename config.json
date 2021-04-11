@@ -14,7 +14,8 @@
   "event": {
     "postCreated": "PostCreated",
     "commentCreated": "CommentCreated",
-    "commentModerated": "CommentModerated"
+    "commentModerated": "CommentModerated",
+    "commentUpdated": "CommentUpdated"
   },
   "commentStatus": {
     "approved": "approved",
