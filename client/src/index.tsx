@@ -10,7 +10,17 @@ import {
 const App: FC = (): JSX.Element => {
 
   return(
-    <div>
+    <div
+      className="container"
+      style={{
+        margin: '30px 10px',
+        padding: '20px',
+        background: 'rgb(251 251 251 / 15%)',
+        boxShadow: 'rgb(37 37 37 / 62%) 1px 1px 9px -2px',
+        border: 'rgb(251 251 251 / 15%)',
+        borderRadius: '5px'
+      }}
+    >
       <PostCreate />
       <hr />
       <PostList />
