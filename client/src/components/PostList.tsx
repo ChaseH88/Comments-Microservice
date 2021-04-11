@@ -17,7 +17,7 @@ const PostList: FC = (): JSX.Element => {
   const fetchPost = async (): Promise<any> => {
 
     const { data } = await useAxios(
-      `http://localhost:${config.ports.posts}${config.routes.post}`,
+      `http://localhost:${config.ports.query}/posts`,
     );
     setPost(data);
 
@@ -28,7 +28,7 @@ const PostList: FC = (): JSX.Element => {
   }, []);
 
   const renderPost = (): JSX.Element[] => (
-    Object.entries(post).map(([a, { title }]) => (
+    Object.entries(post).map(([a, { title, comments }]) => (
       <div
         key={a}
         className={'card'}
@@ -42,7 +42,7 @@ const PostList: FC = (): JSX.Element => {
             {title}
           </h3>
           <Suspense fallback={<div>Loading...</div>}>
-            <CommentList postId={a} />
+            <CommentList comments={comments} />
             <CreateComment postId={a} />
           </Suspense>
         </div>
