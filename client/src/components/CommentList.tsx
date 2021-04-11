@@ -35,7 +35,7 @@ const CommentList: FC<CommentListInterface> = ({ postId }): JSX.Element => {
   return(
     <>
       <h2>Post</h2>
-      {comments?.length && renderComments()}
+      {!!comments?.length && renderComments()}
     </>
   )
 }
