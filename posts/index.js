@@ -1,8 +1,8 @@
-//@ts-check
 const express = require('express');
 const { randomBytes } = require('crypto');
-const { ports, routes } = require('../ports.json');
+const { ports, routes, event } = require('../config.json');
 const cors = require('cors');
+const axios = require('axios');
 
 const app = express();
 
@@ -15,12 +15,17 @@ app.get(routes.post, (req, res) => {
   res.send(posts);
 });
 
-app.post(routes.post, ({ body }, res) => {
+app.post(routes.post, async ({ body }, res) => {
 
   const id = randomBytes(4).toString('hex');
   const { title } = body;
 
   posts[id] = { id, title };
+
+  await axios.post(`http://localhost:${ports.eventBus}/events`, {
+    type: event.postCreated,
+    data: { id, title }
+  })
 
   res.status(201).send(posts[id])
 

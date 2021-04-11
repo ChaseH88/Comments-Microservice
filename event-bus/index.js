@@ -1,6 +1,6 @@
 const express = require('express');
 const app = express();
-const { ports } = require('../ports.json');
+const { ports } = require('../config.json');
 const axios = require('axios');
 
 app.use(express.json());

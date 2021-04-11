@@ -1,6 +1,6 @@
 import React, { FC, useState, useEffect } from 'react';
 import { useAxios } from '../hooks/useAxios';
-import config from '../../public/ports.json';
+import config from '../../public/config.json';
 import { CommentList, CreateComment } from './';
 
 const PostList: FC = (): JSX.Element => {

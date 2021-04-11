@@ -1,6 +1,6 @@
 import React, { FC, useState } from 'react';
 import { useAxios } from '../hooks/useAxios';
-import config from '../../public/ports.json';
+import config from '../../public/config.json';
 
 const PostCreate: FC = (): JSX.Element => {
 

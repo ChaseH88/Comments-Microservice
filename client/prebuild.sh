@@ -1,1 +1,1 @@
-cp ../ports.json public
+cp ../config.json public

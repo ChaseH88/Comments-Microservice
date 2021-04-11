@@ -1,0 +1,15 @@
+{
+  "ports": {
+    "client": 6001,
+    "posts": 6002,
+    "comments": 6003,
+    "eventBus": 6005
+  },
+  "routes": {
+    "post": "/posts",
+    "postComments": "/post/:id/comments"
+  },
+  "event": {
+    "postCreated": "PostCreated"
+  }
+}

@@ -1,7 +1,7 @@
 const express = require('express');
 const { randomBytes } = require('crypto');
 const app = express();
-const { ports, routes } = require('../ports.json');
+const { ports, routes } = require('../config.json');
 const cors = require('cors');
 
 app.use(cors());
