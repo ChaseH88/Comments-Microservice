@@ -1,5 +1,5 @@
 const express = require('express');
-const { ports, routes, event } = require('../config.json');
+const { ports, routes, event, commentStatus } = require('../config.json');
 const cors = require('cors');
 
 const app = express();
@@ -18,7 +18,7 @@ app.post('/events', (req, res) => {
   const { type, data } = req.body;
 
   // Post Created Event
-  if(type === event.postCreated){
+  if (type === event.postCreated) {
 
     const { id, title } = data;
 
@@ -31,12 +31,12 @@ app.post('/events', (req, res) => {
   }
 
   // Comment Created Event
-  if(type === event.commentCreated){
-    const { id, content, postId } = data;
+  if (type === event.commentCreated) {
+    const { id, content, postId, status } = data;
     const post = posts[postId];
 
     post.comments.push({
-      id, content
+      id, content, status
     });
 
   }

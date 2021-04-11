@@ -4,7 +4,8 @@
     "posts": 6002,
     "comments": 6003,
     "query": 6004,
-    "eventBus": 6005
+    "eventBus": 6005,
+    "moderation": 6006
   },
   "routes": {
     "post": "/posts",
@@ -12,6 +13,12 @@
   },
   "event": {
     "postCreated": "PostCreated",
-    "commentCreated": "CommentCreated"
+    "commentCreated": "CommentCreated",
+    "commentModerated": "CommentModerated"
+  },
+  "commentStatus": {
+    "approved": "approved",
+    "pending": "pending",
+    "rejected": "rejected"
   }
 }
