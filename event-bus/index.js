@@ -10,9 +10,9 @@ app.post('/events', (req, res) => {
   const event = req.body;
   console.log('event', event);
 
-  axios.post(`http://localhost:${ports.client}/events`, event)
   axios.post(`http://localhost:${ports.posts}/events`, event)
   axios.post(`http://localhost:${ports.comments}/events`, event);
+  axios.post(`http://localhost:${ports.query}/events`, event)
 
 });
 

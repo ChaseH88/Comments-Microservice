@@ -7,11 +7,43 @@ const app = express();
 app.use(cors());
 app.use(express.json())
 
-app.get('/posts', (req, res) => {
+const posts = {}
 
+app.get('/posts', (req, res) => {
+  res.send(posts);
 });
 
 app.post('/events', (req, res) => {
+
+  const { type, data } = req.body;
+
+  // Post Created Event
+  if(type === event.postCreated){
+
+    const { id, title } = data;
+
+    posts[id] = {
+      id,
+      title,
+      comments: []
+    };
+
+  }
+
+  // Comment Created Event
+  if(type === event.commentCreated){
+    const { id, content, postId } = data;
+    const post = posts[postId];
+
+    post.comments.push({
+      id, content
+    });
+
+  }
+
+  console.log(posts);
+
+  res.send({});
 
 });
 
