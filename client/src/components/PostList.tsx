@@ -1,7 +1,7 @@
 import React, { FC, useState, useEffect } from 'react';
 import { useAxios } from '../hooks/useAxios';
 import config from '../../public/ports.json';
-import { CreateComment } from './';
+import { CommentList, CreateComment } from './';
 
 const PostList: FC = (): JSX.Element => {
 
@@ -34,6 +34,7 @@ const PostList: FC = (): JSX.Element => {
           <h3>
             {title}
           </h3>
+          <CommentList postId={a} />
           <CreateComment postId={a} />
         </div>
       </div>

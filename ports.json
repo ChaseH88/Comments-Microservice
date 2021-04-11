@@ -6,6 +6,6 @@
   },
   "routes": {
     "post": "/posts",
-    "postComments": "/posts/:id/comments"
+    "postComments": "/post/:id/comments"
   }
 }

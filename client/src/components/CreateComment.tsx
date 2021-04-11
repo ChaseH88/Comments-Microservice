@@ -18,7 +18,7 @@ const CreateComment: FC<CreateCommentInterface> = ({ postId }): JSX.Element => {
     e.preventDefault();
 
     await useAxios(
-      `http://localhost:${config.ports.comments}/posts/${postId}/comments`,
+      `http://localhost:${config.ports.comments}/post/${postId}/comments`,
       'post',
       { content }
     );
