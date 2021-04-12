@@ -1,6 +1,7 @@
 const express = require('express');
-const { ports, routes, event, commentStatus } = require('../config.json');
+const { ports, event } = require('../config.json');
 const cors = require('cors');
+const axios = require('axios');
 
 const app = express();
 
@@ -9,13 +10,7 @@ app.use(express.json())
 
 const posts = {}
 
-app.get('/posts', (req, res) => {
-  res.send(posts);
-});
-
-app.post('/events', (req, res) => {
-
-  const { type, data } = req.body;
+const handleEvent = (type, data) => {
 
   // Post Created Event
   if (type === event.postCreated) {
@@ -33,11 +28,13 @@ app.post('/events', (req, res) => {
   // Comment Created Event
   if (type === event.commentCreated) {
     const { id, content, postId, status } = data;
+
     const post = posts[postId];
 
     post.comments.push({
       id, content, status
     });
+
 
   }
 
@@ -54,12 +51,30 @@ app.post('/events', (req, res) => {
     comment.content = content;
   }
 
-  console.log(posts);
+}
+
+app.get('/posts', (req, res) => {
+  res.send(posts);
+});
+
+app.post('/events', (req, res) => {
+
+  const { type, data } = req.body;
+
+  handleEvent(type, data);
 
   res.send({});
 
 });
 
-app.listen(ports.query, () =>
+app.listen(ports.query, async () => {
   console.log(`Listening on http://${ports.query}/`)
-);
+
+  const response = await axios.get(`http://localhost:${ports.eventBus}/events`);
+
+  for (let event of response.data) {
+    console.log('Processing event: ', event.type);
+    handleEvent(event.type, event.data);
+  }
+
+});

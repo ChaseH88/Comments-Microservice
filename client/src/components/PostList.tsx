@@ -4,15 +4,15 @@ import config from '../../public/config.json';
 
 // Code split
 const CommentList = lazy(() => import('./CommentList')
-    .then(({ CommentList }) => ({ default: CommentList }))
+  .then(({ CommentList }) => ({ default: CommentList }))
 );
 const CreateComment = lazy(() => import('./CreateComment')
-    .then(({ CreateComment }) => ({ default: CreateComment })),
+  .then(({ CreateComment }) => ({ default: CreateComment })),
 );
 
 const PostList: FC = (): JSX.Element => {
 
-  const [ post, setPost ] = useState<{[key: string]: any}>({});
+  const [post, setPost] = useState<{ [key: string]: any }>({});
 
   const fetchPost = async (): Promise<any> => {
 
@@ -50,7 +50,7 @@ const PostList: FC = (): JSX.Element => {
     ))
   )
 
-  return(
+  return (
     <>
       <h2>Post</h2>
       {post && renderPost()}

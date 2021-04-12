@@ -5,16 +5,29 @@ const axios = require('axios');
 
 app.use(express.json());
 
+const events = [];
+
 app.post('/events', (req, res) => {
 
   const event = req.body;
-  console.log('event', event);
 
-  axios.post(`http://localhost:${ports.posts}/events`, event);
-  axios.post(`http://localhost:${ports.comments}/events`, event);
-  axios.post(`http://localhost:${ports.query}/events`, event);
-  axios.post(`http://localhost:${ports.moderation}/events`, event);
+  events.push(event);
 
+  const portsArr = [
+    ports.posts,
+    ports.comments,
+    ports.query,
+    ports.moderation
+  ]
+
+  portsArr.forEach(port => {
+    axios.post(`http://localhost:${port}/events`, event);
+  });
+
+});
+
+app.get('/events', (req, res) => {
+  res.send(events);
 });
 
 app.listen(ports.eventBus, () =>
