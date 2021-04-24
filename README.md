@@ -1,5 +1,11 @@
 # Comments Microservice
 
+## Prebuild
+Once the project has been cloned down, you will need to run the `prebuid.sh` script to copy the `config.json` file into each project root directory. This is done because each of the microservices are using Docker and it does not have the ability to jump up to the **Comment-App** root directory. To run this file, simply run the following command on the root:
+
+- `bash prebuild.sh` - will copy the config file to each microservice.
+
+<br>
 
 ## What Should the Microservice Do?
 

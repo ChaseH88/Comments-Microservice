@@ -1,5 +1,5 @@
 const express = require('express');
-const { ports, event } = require('../config.json');
+const { ports, event } = require('./config.json');
 const cors = require('cors');
 const axios = require('axios');
 

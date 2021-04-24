@@ -4,7 +4,6 @@
   "description": "",
   "main": "index.html",
   "scripts": {
-    "prestart": "bash ./prebuild.sh",
     "start": "snowpack dev --verbose",
     "build": "snowpack build"
   },

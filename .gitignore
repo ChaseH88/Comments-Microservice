@@ -1,1 +1,4 @@
 node_modules
+
+# config file is at the root level
+*/**/config.json

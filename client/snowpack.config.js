@@ -1,4 +1,4 @@
-const { ports: { client } } = require('../config.json');
+const { ports: { client } } = require('./config.json');
 
 module.exports = {
   mount: {

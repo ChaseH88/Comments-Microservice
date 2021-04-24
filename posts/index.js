@@ -1,6 +1,6 @@
 const express = require('express');
 const { randomBytes } = require('crypto');
-const { ports, routes, event } = require('../config.json');
+const { ports, routes, event } = require('./config.json');
 const cors = require('cors');
 const axios = require('axios');
 
