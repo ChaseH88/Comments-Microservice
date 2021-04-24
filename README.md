@@ -5,6 +5,8 @@ Once the project has been cloned down, you will need to run the `prebuid.sh` scr
 
 - `bash prebuild.sh` - will copy the config file to each microservice.
 
+**Important Note:** *Once this bash script is finished, you will have the `config.json` file on each microservice root. Do not edit the config file from these folders. If you need to modify the config file, do it from the **Comment-App** root and re-run the bash script to update the microservices.*
+
 <br>
 
 ## What Should the Microservice Do?
